@@ -7,7 +7,7 @@
   <strong>简体中文</strong> | <a href="docs/README_EN.md">English</a>
 </p>
 <p align="center"><img src="https://img.shields.io/badge/License-CNC--1.0-red.svg" /> <img src="https://img.shields.io/badge/Python-3.11-3776AB?logo=python&logoColor=white" /> <img src="https://img.shields.io/badge/FastAPI-0.110-009688?logo=fastapi&logoColor=white" /> <img src="https://img.shields.io/badge/Vue-3-4FC08D?logo=vue.js&logoColor=white" /> <img src="https://img.shields.io/badge/Vite-7-646CFF?logo=vite&logoColor=white" /> <img src="https://img.shields.io/badge/Docker-ready-2496ED?logo=docker&logoColor=white" /></p>
-<p align="center"><strong>当前稳定版本：v0.3.0</strong> | <a href="https://github.com/yukkcat/gemini-business2api/releases/tag/v0.3.0">发布说明</a> | <a href="https://github.com/yukkcat/gemini-business2api/releases">全部版本</a></p>
+<p align="center"><strong>当前稳定版本：v0.3.1</strong> | <a href="https://github.com/yukkcat/gemini-business2api/releases/tag/v0.3.1">发布说明</a> | <a href="https://github.com/yukkcat/gemini-business2api/releases">全部版本</a></p>
 
 > [!IMPORTANT]
 > 自 **v0.3.0** 起，主线仓库已彻底归为 **2API 主线**：
@@ -152,33 +152,36 @@ docker compose up -d
 docker compose --profile refresh up -d
 ```
 
-### 方式二：交互式安装脚本（Linux / macOS / WSL / Git Bash）
+### 方式二：交互式安装脚本
+
+交互式安装脚本适用于需要命令行引导安装的场景。执行过程中会提示填写或选择以下配置项：
+
+- 使用 **Docker 部署** 还是 **Python 本地模式**
+- 服务端口
+- `ADMIN_KEY`
+- `DATABASE_URL`
+- **是否启用 refresh-worker**
+
+默认安装：
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/yukkcat/gemini-business2api/main/deploy/install.sh | sudo bash
 ```
 
-锁定当前正式版：
+固定到当前正式版：
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/yukkcat/gemini-business2api/v0.3.0/deploy/install.sh | sudo bash
+curl -fsSL https://raw.githubusercontent.com/yukkcat/gemini-business2api/v0.3.1/deploy/install.sh | sudo bash
 ```
 
-启用 refresh-worker：
+预设 `refresh-worker` 默认开启：
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/yukkcat/gemini-business2api/main/deploy/install.sh | sudo bash -s -- --with-refresh
 ```
 
-### 方式三：Python 本地开发
-
-```bash
-git clone https://github.com/yukkcat/gemini-business2api.git
-cd gemini-business2api
-bash deploy/install.sh --mode python
-```
-
-适合开发、调试和本地修改代码。
+> `--with-refresh` 用于将“是否启用 refresh-worker”的默认选项预设为开启，
+> 并不代表另一套独立安装流程。
 
 ---
 
